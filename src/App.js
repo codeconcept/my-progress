@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 
@@ -7,9 +7,23 @@ import Menu from "./components/Menu";
 import Home from "./pages/Home";
 import TechnoAdd from "./pages/TechnoAdd";
 import TechnoList from "./pages/TechnoList";
+import { useLocalStorage } from "./hooks/useLocalStorage";
 
 function App() {
   const [technos, setTechnos] = useState([]);
+
+  const STORAGE_KEY = "technos";
+  const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, []);
+
+  // On first App component mount
+  useEffect(() => {
+    setTechnos(storedTechnos);
+  }, []);
+
+  // On every TechnoList component render
+  useEffect(() => {
+    setStoredTechnos(technos);
+  }, [technos]);
 
   function handleAddTechno(techno) {
     setTechnos([...technos, { ...techno, technoid: uuidv4() }]);
