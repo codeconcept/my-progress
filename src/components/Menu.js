@@ -6,17 +6,26 @@ export default function Menu() {
     <div className="menu">
       <ul>
         <li>
-          <NavLink to="/">
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "activelink" : undefined)}
+          >
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink to="/add">
+          <NavLink
+            to="/add"
+            className={({ isActive }) => (isActive ? "activelink" : undefined)}
+          >
             Add Techno
           </NavLink>
         </li>
         <li>
-          <NavLink to="/list">
+          <NavLink
+            to="/list"
+            className={({ isActive }) => (isActive ? "activelink" : undefined)}
+          >
             All Technos
           </NavLink>
         </li>

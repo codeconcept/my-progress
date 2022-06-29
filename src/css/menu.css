@@ -13,3 +13,8 @@ a {
   text-decoration: none;
   color: black;
 }
+
+.activelink {
+  font-weight: bold;
+  color: #07c5fa;
+}

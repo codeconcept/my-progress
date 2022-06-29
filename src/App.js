@@ -16,7 +16,6 @@ function App() {
         <Route path="/add" element={<TechnoAdd />} />
         <Route path="/list" element={<TechnoList />} />
       </Routes>
-      {new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}
     </>
   );
 }
