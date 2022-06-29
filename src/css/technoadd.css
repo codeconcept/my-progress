@@ -42,3 +42,7 @@ select {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+h1 {
+  text-align: center;
+}
