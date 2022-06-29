@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function TechnoAdd() {
   return (
     <div className="techno-add">
