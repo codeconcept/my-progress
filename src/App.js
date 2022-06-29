@@ -1,24 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import "./css/app.css";
+import Menu from "./components/Menu";
+import Home from "./pages/Home";
+import TechnoAdd from "./pages/TechnoAdd";
+import TechnoList from "./pages/TechnoList";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu />
+      <Home />
+      <TechnoAdd />
+      <TechnoList />
+      {new Date().toLocaleString("fr-FR", { timeZone: "Europe/Paris" })}
+    </>
   );
 }
 
