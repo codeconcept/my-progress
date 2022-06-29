@@ -1,5 +1,6 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import { Routes, Route } from "react-router-dom";
+import { v4 as uuidv4 } from "uuid";
 
 import "./css/app.css";
 import Menu from "./components/Menu";
@@ -11,8 +12,7 @@ function App() {
   const [technos, setTechnos] = useState([]);
 
   function handleAddTechno(techno) {
-    console.log('handleAddTechno', techno);
-    setTechnos([...technos, techno]);
+    setTechnos([...technos, { ...techno, technoid: uuidv4() }]);
   }
 
   return (
@@ -20,8 +20,11 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} />} />
-        <Route path="/list" element={<TechnoList />} />
+        <Route
+          path="/add"
+          element={<TechnoAdd handleAddTechno={handleAddTechno} />}
+        />
+        <Route path="/list" element={<TechnoList technos={technos} />} />
       </Routes>
     </>
   );
