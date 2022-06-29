@@ -18,11 +18,13 @@ function App() {
   // On first App component mount
   useEffect(() => {
     setTechnos(storedTechnos);
+    console.log("App component mounted");
   }, []);
 
-  // On every TechnoList component render
+  // On every technos change
   useEffect(() => {
     setStoredTechnos(technos);
+    console.log("Technos changed");
   }, [technos]);
 
   function handleAddTechno(techno) {
